@@ -9,8 +9,6 @@ module.exports = {
     },
   },
   rules: {
-    'no-underscore-dangle': ['error', { allow: ['__', '__typename'] }],
-    'spaced-comment': [2, 'always', { exceptions: ['#'] }],
     quotes: ['error', 'single', { avoidEscape: true }],
     'import/order': [
       'error',

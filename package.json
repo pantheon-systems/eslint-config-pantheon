@@ -1,6 +1,6 @@
 {
   "name": "@pantheon/eslint-config-pantheon",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "",
   "main": "configurations/defaults",
   "scripts": {

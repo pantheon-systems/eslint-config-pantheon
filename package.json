@@ -1,15 +1,17 @@
 {
   "name": "@pantheon/eslint-config-pantheon",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "",
-  "main": "index.js",
+  "main": "configurations/defaults",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint-fix": "eslint configurations --fix",
+    "lint": "eslint configurations"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.16.0",
+    "@babel/eslint-parser": "^7.16.3",
     "@babel/preset-env": "^7.16.4",
     "babel-plugin-module-resolver": "^4.1.0",
     "eslint": "^8.3.0",

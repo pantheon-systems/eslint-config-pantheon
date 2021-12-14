@@ -100,13 +100,13 @@ jobs:
 
 workflows:
   version: 2
-  integrity_check_workflow:
+  integrity_check:
     jobs:
       - run_tests_job:
           name: Node 14
           image_tag: v14
 
-  publish_workflow:
+  publish:
     jobs:
       - run_tests_job:
           image_tag: v14

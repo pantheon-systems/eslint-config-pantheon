@@ -1,0 +1,128 @@
+version: 2.1
+
+executors:
+  pantheon_node:
+    parameters:
+      image_tag:
+        type: string
+    docker:
+      - image: quay.io/getpantheon/pantheon_node:<< parameters.image_tag >>
+        auth:
+          username: $QUAY_USER
+          password: $QUAY_PASSWD
+
+commands:
+  # TODO: Run danger checks
+  # TODO: Add CHANGELOG for updates
+
+  install_dependencies_command:
+    description: 'Install Dependencies and Update Cache'
+    parameters:
+      image_tag:
+        type: string
+    steps:
+      - restore_cache:
+          name: 'Restore Yarn Package Cache'
+          keys:
+            - yarn-<< parameters.image_tag >>-packages-{{ checksum "yarn.lock" }}
+      - run:
+          name: Install Dependencies
+          command: yarn install --frozen-lockfile
+      - save_cache:
+          name: Save Yarn Package Cache
+          key: yarn-<< parameters.image_tag >>-packages-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.cache/yarn
+
+  run_lint_command:
+    description: 'Run ESLint'
+    steps:
+      - run:
+          command: 'yarn run eslint'
+
+  create_private_repo_command:
+    description: 'Set Up the NPM repository for PackageCloud'
+    steps:
+      - run:
+          name: 'Set up PackageCloud'
+          command: /scripts/setup-repository.sh $PACKAGECLOUD_TOKEN # This script is provided by the CI Docker image and is not part of the repo.
+
+  publish_packagecloud_command:
+    description: 'Publish the build to PackageCloud'
+    steps:
+      - run:
+          name: 'Publish to PackageCloud'
+          command: |
+            /scripts/enable-project-publish.sh # This script is provided by the CI Docker image and is not part of the repo.
+            yarn publish
+
+jobs:
+  publish_job:
+    description: 'Publish the Package'
+    parameters:
+      image_tag:
+        type: string
+    executor:
+      name: pantheon_node
+      image_tag: << parameters.image_tag >>
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: ./
+      - create_private_repo_command
+      - publish_packagecloud_command
+
+  run_tests_job:
+    description: 'Run Tests'
+    parameters:
+      image_tag:
+        type: string
+      persist_workspace:
+        type: boolean
+        default: false
+    executor:
+      name: pantheon_node
+      image_tag: << parameters.image_tag >>
+    resource_class: small
+    steps:
+      - checkout
+      - create_private_repo_command
+      - install_dependencies_command:
+          image_tag: << parameters.image_tag >>
+      - run_lint_command
+      - when:
+          condition: << parameters.persist_workspace >>
+          steps:
+            - persist_to_workspace:
+                root: ./
+                paths:
+                  - ./
+
+workflows:
+  version: 2
+  integrity_check_workflow:
+    jobs:
+      - run_tests_job:
+          name: Node 14
+          image_tag: v14
+
+  publish_workflow:
+    jobs:
+      - run_tests_job:
+          image_tag: v14
+          persist_workspace: true
+          filters:
+            tags:
+              only: /^v.*/
+            branches:
+              ignore: /.*/
+
+      - publish_job:
+          image_tag: v14
+          requires:
+            - run_tests_job
+          filters:
+            tags:
+              only: /^v.*/
+            branches:
+              ignore: /.*/

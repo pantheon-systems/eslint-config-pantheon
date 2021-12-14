@@ -12,8 +12,12 @@ executors:
           password: $QUAY_PASSWD
 
 commands:
-  # TODO: Run danger checks
-  # TODO: Add CHANGELOG for updates
+  run_danger_command:
+    description: 'Run danger checks'
+    steps:
+      - run:
+          name: Run Danger Checks
+          command: yarn danger ci -d danger.config.js
 
   install_dependencies_command:
     description: 'Install Dependencies and Update Cache'
@@ -38,6 +42,7 @@ commands:
     description: 'Run ESLint'
     steps:
       - run:
+          name: 'Run ESLint'
           command: 'yarn run eslint'
 
   create_private_repo_command:
@@ -90,6 +95,7 @@ jobs:
       - install_dependencies_command:
           image_tag: << parameters.image_tag >>
       - run_lint_command
+      - run_danger_command
       - when:
           condition: << parameters.persist_workspace >>
           steps:

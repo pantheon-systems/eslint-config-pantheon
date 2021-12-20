@@ -1,7 +1,8 @@
 module.exports = {
-  parser: '@babel/eslint-parser',
+  parser: 'babel-eslint',
   extends: [
     'airbnb-base',
+    'prettier'
   ],
   settings: {
     'import/resolver': {

@@ -10,6 +10,11 @@ All notable changes to this project will be documented in this file. This projec
 
 ### Fixed/Updated
 
+- Change parser to 'babel-parser'([#6][6])
+- Adds prettier config([#6][6])
+
+[6]: https://github.com/pantheon-systems/eslint-config-pantheon/pull/6
+
 ## 0.1.0
 
 ### Added

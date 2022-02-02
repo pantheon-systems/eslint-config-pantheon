@@ -109,13 +109,13 @@ workflows:
   integrity_check:
     jobs:
       - run_tests_job:
-          name: Node 14
-          image_tag: v14
+          name: Node 16
+          image_tag: v16
 
   publish:
     jobs:
       - run_tests_job:
-          image_tag: v14
+          image_tag: v16
           persist_workspace: true
           filters:
             tags:
@@ -124,7 +124,7 @@ workflows:
               ignore: /.*/
 
       - publish_job:
-          image_tag: v14
+          image_tag: v16
           requires:
             - run_tests_job
           filters:

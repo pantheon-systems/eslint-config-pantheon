@@ -10,6 +10,10 @@ All notable changes to this project will be documented in this file. This projec
 
 ### Fixed/Updated
 
+- Update `node` to version 16 ([#12][12])
+
+[12]: https://github.com/pantheon-systems/eslint-config-pantheon/pull/12
+
 ## 0.2.0
 
 ### Breaking

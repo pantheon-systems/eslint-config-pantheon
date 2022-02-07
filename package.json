@@ -1,6 +1,6 @@
 {
   "name": "@pantheon/eslint-config-pantheon",
-  "version": "0.2.1",
+  "version": "0.2.2-dev",
   "author": "engineering@pantheon.io",
   "description": "A collection of Pantheon's ESLint configurations",
   "engines": {

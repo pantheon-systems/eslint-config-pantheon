@@ -2,17 +2,13 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org)
 
-## Main
+## 1.0.0
 
 ### Breaking
 
 - Upgrade all packages to latest. `eslint-config-pantheon` is now compatible with `eslint ^7.5.0 || ^8.0.0` ([#15][#15])
 
 [15]: https://github.com/pantheon-systems/eslint-config-pantheon/pull/15
-
-### Added
-
-### Fixed/Updated
 
 ## 0.2.1
 

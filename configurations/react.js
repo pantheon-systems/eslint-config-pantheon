@@ -3,7 +3,7 @@ module.exports = {
   parserOptions: {
     requireConfigFile: false,
     babelOptions: {
-      presets: ['@babel/preset-env'],
+      presets: ['@babel/preset-env', '@babel/preset-react'],
     },
   },
   extends: [
@@ -13,8 +13,6 @@ module.exports = {
     'plugin:jest-dom/recommended',
     'plugin:jsx-a11y/recommended',
     'prettier',
-    'prettier/react',
-    'plugin:testing-library/recommended',
     'plugin:testing-library/react',
   ],
   plugins: ['jest', 'jsx', 'react-hooks', 'testing-library', 'import'],
@@ -24,6 +22,7 @@ module.exports = {
   },
   rules: {
     quotes: ['error', 'single', { avoidEscape: true }],
+    'arrow-body-style': 'off',
     'import/order': [
       'error',
       {
@@ -42,7 +41,7 @@ module.exports = {
     ],
     'jest/consistent-test-it': ['error', { fn: 'it' }],
     'jest/expect-expect': 'error',
-    'jest/lowercase-name': [
+    'jest/prefer-lowercase-title': [
       'error',
       {
         ignore: ['describe'],
@@ -51,12 +50,11 @@ module.exports = {
     'jest/no-commented-out-tests': 'error',
     'jest/no-mocks-import': 'error',
     'jest/no-standalone-expect': 'error',
-    'jest/no-truthy-falsy': 'error',
-    'jest/no-try-expect': 'error',
     'jest/prefer-hooks-on-top': 'error',
     'jest/require-top-level-describe': 'error',
     'jest/require-to-throw-message': 'error',
     'jest/valid-title': 'error',
+    'react/function-component-definition': 'off',
     'react/jsx-props-no-spreading': 'off',
     'react/jsx-fragments': ['error', 'element'],
     'react/jsx-sort-default-props': 'error',
@@ -82,6 +80,7 @@ module.exports = {
     ],
     'testing-library/no-await-sync-events': 'error',
     'testing-library/no-manual-cleanup': 'error',
+    'testing-library/no-render-in-setup': 'off',
     'testing-library/no-wait-for-snapshot': 'error',
     'testing-library/prefer-explicit-assert': 'warn',
     'testing-library/prefer-presence-queries': 'error',

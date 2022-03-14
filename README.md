@@ -45,7 +45,7 @@ This plugin includes linting rules for `import`, `jest`, `jest-dom`, `jsx`, `jsx
 
 ## Configuration
 
-1. In your project's ESLint config (e.g. `eslintrc.js`):
+1. In your project's ESLint config (e.g. `.eslintrc.js`):
     - For `Browser/React` environment, add `@pantheon/eslint-config-pantheon/configurations/react` to `extends`:
     ```javascript
     module.exports = {

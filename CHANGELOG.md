@@ -2,19 +2,21 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org)
 
-## Main
-
-### Breaking
-
-### Added
+## 1.0.1
 
 ### Fixed/Updated
+
+- Update `node-fetch` to fix security vulnerability ([#19][19])
+- Update `minimist` to fix security vulnerability ([#21][21])
+
+[19]: https://github.com/pantheon-systems/eslint-config-pantheon/pull/19
+[21]: https://github.com/pantheon-systems/eslint-config-pantheon/pull/21
 
 ## 1.0.0
 
 ### Breaking
 
-- Upgrade all packages to latest. `eslint-config-pantheon` is now compatible with `eslint ^7.5.0 || ^8.0.0` ([#15][#15])
+- Upgrade all packages to latest. `eslint-config-pantheon` is now compatible with `eslint ^7.5.0 || ^8.0.0` ([#15][15])
 
 [15]: https://github.com/pantheon-systems/eslint-config-pantheon/pull/15
 

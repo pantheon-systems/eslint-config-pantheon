@@ -1,4 +1,4 @@
-Pantheon ESLint Config (`@pantheon/eslint-config-pantheon`) is a linting tool for `JavaScript`.
+Pantheon ESLint Config (`@pantheon-systems/eslint-config-pantheon`) is a linting tool for `JavaScript`.
 
 It exports a set of ESLint rules for `Browser/React`, and a set of rules for `Node`. You can import either one (or both) based on the requirements of your project.
 
@@ -16,47 +16,41 @@ This plugin includes linting rules for `import`, `jest`, `jest-dom`, `jsx`, `jsx
 
 ## Installation
 
-1. You need access to [packagecloud.io](https://packagecloud.io/) in order to install Pantheon ESLint Config, because it is uploaded to Package Cloud (not NPM).
-
-    - [Instruction in WiKi](https://getpantheon.atlassian.net/wiki/spaces/VULCAN/pages/526254084/NPM+Configurations+Font+Awesome) to access `packagecloud.io`.
-
-    - *NOTE*: You only need the script for `packagecloud.io` from the instruction.
-
-2. After getting access to `packagecloud.io`, now you can install by the following command:
+- You can install this plugin by the following command:
 
     ```bash
-    $ yarn add @pantheon/eslint-config-pantheon --dev
+    $ yarn add @pantheon-systems/eslint-config-pantheon --dev
     ```
     Or:
     ```bash
-    $ npm install @pantheon/eslint-config-pantheon --save-dev
+    $ npm install @pantheon-systems/eslint-config-pantheon --save-dev
     ```
 
 
 - **NOTE**: For projects using `eslint` version lower than `7.5.0`, you can install this plugin's `0.2.1` version instead:
 
   ```bash
-  $ yarn add @pantheon/eslint-config-pantheon@0.2.1 --dev
+  $ yarn add @pantheon-systems/eslint-config-pantheon@0.2.1 --dev
   ```
   Or:
   ```bash
-  $ npm install @pantheon/eslint-config-pantheon@0.2.1 --save-dev
+  $ npm install @pantheon-systems/eslint-config-pantheon@0.2.1 --save-dev
   ```
 
 ## Configuration
 
 1. In your project's ESLint config (e.g. `.eslintrc.js`):
-    - For `Browser/React` environment, add `@pantheon/eslint-config-pantheon/configurations/react` to `extends`:
+    - For `Browser/React` environment, add `@pantheon-systems/eslint-config-pantheon/configurations/react` to `extends`:
     ```javascript
     module.exports = {
-      extends: ['@pantheon/eslint-config-pantheon/configurations/react']
+      extends: ['@pantheon-systems/eslint-config-pantheon/configurations/react']
     }
     ```
 
-    - For `Node` environment, add `@pantheon/eslint-config-pantheon/configurations/node`:
+    - For `Node` environment, add `@pantheon-systems/eslint-config-pantheon/configurations/node`:
     ```javascript
     module.exports = {
-      extends: ['@pantheon/eslint-config-pantheon/configurations/node']
+      extends: ['@pantheon-systems/eslint-config-pantheon/configurations/node']
     }
     ```
 
@@ -69,7 +63,7 @@ This plugin includes linting rules for `import`, `jest`, `jest-dom`, `jsx`, `jsx
 
 ## How to Use
 
-- Now you have `@pantheon/eslint-config-pantheon` installed and configured, you can start linting by using:
+- Now you have `@pantheon-systems/eslint-config-pantheon` installed and configured, you can start linting by using:
   ```bash
   $ yarn eslint
   ```
@@ -91,6 +85,6 @@ This plugin includes linting rules for `import`, `jest`, `jest-dom`, `jsx`, `jsx
 
 ## Questions?
 
-If you have any question/feedback, or need help with this plugin, please feel free to ask in `#ask-cxe` or `#frontend` channel in Slack.
+If you have any question/feedback, or need help with this plugin, please feel free to ask in `#ask-cxe` or `#frontend` channel in Pantheon Slack.
 
-Thank you for using `@pantheon/eslint-config-pantheon` and making our code prettier!
+Thank you for using `@pantheon-systems/eslint-config-pantheon` and making our code prettier!

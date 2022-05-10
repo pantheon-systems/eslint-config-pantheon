@@ -10,6 +10,12 @@ All notable changes to this project will be documented in this file. This projec
 
 ### Fixed/Updated
 
+- Update README and add LICENSE ([#24][24])
+- Update CirclCI config to publish to npm ([#25][25])
+
+[24]: https://github.com/pantheon-systems/eslint-config-pantheon/pull/24
+[25]: https://github.com/pantheon-systems/eslint-config-pantheon/pull/25
+
 ## 1.0.1
 
 ### Fixed/Updated

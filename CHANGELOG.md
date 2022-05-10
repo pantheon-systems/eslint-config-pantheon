@@ -2,7 +2,9 @@
 
 All notable changes to this project will be documented in this file. This project adheres to [Semantic Versioning](http://semver.org)
 
-## 1.0.2
+## 1.0.3
+
+**Note**: `1.0.3` is basically the same as `1.0.2`, which was published and deleted during testing.
 
 ### Fixed/Updated
 

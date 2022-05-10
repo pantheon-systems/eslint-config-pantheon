@@ -45,21 +45,15 @@ commands:
           name: 'Run ESLint'
           command: 'yarn run eslint'
 
-  create_private_repo_command:
-    description: 'Set Up the NPM repository for PackageCloud'
+  publish_package_command:
+    description: 'Publish to npm'
     steps:
       - run:
-          name: 'Set up PackageCloud'
-          command: /scripts/setup-repository.sh $PACKAGECLOUD_TOKEN # This script is provided by the CI Docker image and is not part of the repo.
-
-  publish_packagecloud_command:
-    description: 'Publish the build to PackageCloud'
-    steps:
+          name: 'Authenticate with registry'
+          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
       - run:
-          name: 'Publish to PackageCloud'
-          command: |
-            /scripts/enable-project-publish.sh # This script is provided by the CI Docker image and is not part of the repo.
-            yarn publish
+          name: 'Publish package'
+          command: npm publish --access public
 
 jobs:
   publish_job:
@@ -74,8 +68,7 @@ jobs:
     steps:
       - attach_workspace:
           at: ./
-      - create_private_repo_command
-      - publish_packagecloud_command
+      - publish_package_command
 
   run_tests_job:
     description: 'Run Tests'
@@ -91,7 +84,6 @@ jobs:
     resource_class: small
     steps:
       - checkout
-      - create_private_repo_command
       - install_dependencies_command:
           image_tag: << parameters.image_tag >>
       - run_lint_command

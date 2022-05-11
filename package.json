@@ -1,6 +1,6 @@
 {
   "name": "@pantheon-systems/eslint-config-pantheon",
-  "version": "1.0.3",
+  "version": "1.0.4-dev",
   "author": "engineering@pantheon.io",
   "description": "A collection of Pantheon's ESLint configurations",
   "license": "MIT",
